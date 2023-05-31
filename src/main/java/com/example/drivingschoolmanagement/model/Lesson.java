@@ -1,5 +1,6 @@
 package com.example.drivingschoolmanagement.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.NotFound;
@@ -24,6 +25,7 @@ public class Lesson {
     @ManyToOne(optional = false)
     @JoinColumn(name = "student_id")
     @NotFound(action = NotFoundAction.IGNORE)
+    @JsonIgnore
     private Student student;
 
     @ManyToOne(optional = false)
