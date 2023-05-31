@@ -33,4 +33,7 @@ public class StudentService {
     public void deleteStudent(Integer studentId) {
         studentRepository.deleteById(studentId);
     }
+    public List<Student> getStudentsWithLessonsToday() {
+        return studentRepository.findStudentsWithLessonsToday();
+    }
 }
