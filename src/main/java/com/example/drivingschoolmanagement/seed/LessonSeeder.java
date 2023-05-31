@@ -5,6 +5,7 @@ import com.example.drivingschoolmanagement.model.*;
 import com.example.drivingschoolmanagement.service.*;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @Component
+@Profile("seed")
 public class LessonSeeder {
 
     @Autowired
