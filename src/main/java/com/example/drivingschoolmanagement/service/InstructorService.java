@@ -33,4 +33,12 @@ public class InstructorService {
     public void deleteInstructor(Integer instructorId) {
         instructorRepository.deleteById(instructorId);
     }
+    public List<Instructor> getInstructorsWithMaxLessonsNextWeek() {
+        return instructorRepository.findInstructorsWithMaxLessonsNextWeek();
+    }
+    public List<Instructor> getInstructorsWithBirthdayInMonth(Integer month) {
+        return instructorRepository.findInstructorsWithBirthdayInMonth(month);
+    }
+
+
 }
