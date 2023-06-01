@@ -36,4 +36,9 @@ public class StudentService {
     public List<Student> getStudentsWithLessonsToday() {
         return studentRepository.findStudentsWithLessonsToday();
     }
+    public List<Student> getStudentsStartedInYear(Integer year) {
+        return studentRepository.findStudentsStartedInYear(year);
+    }
+
+
 }
