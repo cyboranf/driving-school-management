@@ -33,4 +33,11 @@ public class VehicleService {
     public void deleteVehicle(Integer vehicleId) {
         vehicleRepository.deleteById(vehicleId);
     }
+    public List<Vehicle> getVehiclesNeedingMaintenance() {
+        return vehicleRepository.findVehiclesNeedingMaintenance();
+    }
+    public List<Vehicle> getAssignedVehicles() {
+        return vehicleRepository.findAssignedVehicles();
+    }
+
 }
