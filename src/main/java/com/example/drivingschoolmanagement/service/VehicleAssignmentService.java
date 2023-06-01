@@ -33,4 +33,12 @@ public class VehicleAssignmentService {
     public void deleteVehicleAssignment(Integer assignmentId) {
         vehicleAssignmentRepository.deleteById(assignmentId);
     }
+    public List<VehicleAssignment> getActiveAssignments() {
+        return vehicleAssignmentRepository.findActiveAssignments();
+    }
+
+    public List<VehicleAssignment> getInactiveAssignments() {
+        return vehicleAssignmentRepository.findInactiveAssignments();
+    }
+
 }
