@@ -1,5 +1,6 @@
 package com.example.drivingschoolmanagement.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -9,6 +10,14 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "courses")
+@NamedStoredProcedureQuery(
+        name = "get_courses_with_lessons_today",
+        procedureName = "get_courses_with_lessons_today",
+        resultClasses = {Course.class},
+        parameters = {
+                @StoredProcedureParameter(mode = ParameterMode.REF_CURSOR, type = void.class)
+        }
+)
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,8 +32,10 @@ public class Course {
     private BigDecimal courseFee;
 
     @OneToMany(mappedBy = "course")
+    @JsonIgnore
     private List<Lesson> lessons;
 
     @OneToMany(mappedBy = "course")
+    @JsonIgnore
     private List<Test> tests;
 }
