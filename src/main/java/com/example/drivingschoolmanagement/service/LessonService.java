@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -33,4 +34,8 @@ public class LessonService {
     public void deleteLesson(Integer lessonId) {
         lessonRepository.deleteById(lessonId);
     }
+    public List<Lesson> getLessonsToday() {
+        return lessonRepository.findLessonsToday();
+    }
+
 }

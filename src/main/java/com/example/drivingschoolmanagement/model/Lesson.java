@@ -12,6 +12,11 @@ import java.time.LocalDateTime;
 @Entity
 @Data
 @Table(name = "lessons")
+@NamedStoredProcedureQuery(
+        name = "lessons_today",
+        procedureName = "lessons_today",
+        resultClasses = {Lesson.class}
+)
 public class Lesson {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +25,7 @@ public class Lesson {
     @ManyToOne(optional = false)
     @JoinColumn(name = "assignment_id")
     @NotFound(action = NotFoundAction.IGNORE)
+    @JsonIgnore
     private VehicleAssignment vehicleAssignment;
 
     @ManyToOne(optional = false)
@@ -31,11 +37,13 @@ public class Lesson {
     @ManyToOne(optional = false)
     @JoinColumn(name = "course_id")
     @NotFound(action = NotFoundAction.IGNORE)
+    @JsonIgnore
     private Course course;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "instructor_id")
     @NotFound(action = NotFoundAction.IGNORE)
+    @JsonIgnore
     private Instructor instructor;
 
     private LocalDate lessonDate;
