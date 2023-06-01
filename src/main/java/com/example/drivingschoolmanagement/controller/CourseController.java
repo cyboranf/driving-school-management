@@ -23,4 +23,9 @@ public class CourseController {
         return courseService.getCoursesWithLessonsToday();
     }
 
+    @GetMapping("/max_lessons")
+    public List<Course> getCoursesWithMaxLessons() {
+        return courseService.getCoursesWithMaxLessons();
+    }
+
 }

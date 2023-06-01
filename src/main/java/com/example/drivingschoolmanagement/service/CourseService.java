@@ -36,5 +36,8 @@ public class CourseService {
     public List<Course> getCoursesWithLessonsToday() {
         return courseRepository.findCoursesWithLessonsToday();
     }
+    public List<Course> getCoursesWithMaxLessons() {
+        return courseRepository.findCoursesWithMaxLessons();
+    }
 
 }

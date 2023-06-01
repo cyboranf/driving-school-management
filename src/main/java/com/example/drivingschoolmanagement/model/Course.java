@@ -18,6 +18,14 @@ import java.util.List;
                 @StoredProcedureParameter(mode = ParameterMode.REF_CURSOR, type = void.class)
         }
 )
+@NamedStoredProcedureQuery(
+        name = "get_courses_with_max_lessons",
+        procedureName = "get_courses_with_max_lessons",
+        resultClasses = {Course.class},
+        parameters = {
+                @StoredProcedureParameter(mode = ParameterMode.REF_CURSOR, type = void.class)
+        }
+)
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
