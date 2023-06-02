@@ -12,11 +12,22 @@ import java.time.LocalDateTime;
 @Entity
 @Data
 @Table(name = "lessons")
-@NamedStoredProcedureQuery(
-        name = "lessons_today",
-        procedureName = "lessons_today",
-        resultClasses = {Lesson.class}
-)
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(
+                name = "lessons_today",
+                procedureName = "lessons_today",
+                resultClasses = {Lesson.class}
+        ),
+        @NamedStoredProcedureQuery(
+                name = "upcoming_lessons",
+                procedureName = "upcoming_lessons",
+                parameters = {
+                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "p_instructor_id", type = Integer.class),
+                        @StoredProcedureParameter(mode = ParameterMode.REF_CURSOR, name = "p_result", type = void.class)
+                },
+                resultClasses = {Lesson.class}
+        )
+})
 public class Lesson {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

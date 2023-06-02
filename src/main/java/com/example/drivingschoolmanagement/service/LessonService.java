@@ -37,5 +37,7 @@ public class LessonService {
     public List<Lesson> getLessonsToday() {
         return lessonRepository.findLessonsToday();
     }
-
+    public List<Lesson> getUpcomingLessonsByInstructor(Integer instructorId) {
+        return lessonRepository.findUpcomingLessonsByInstructor(instructorId);
+    }
 }

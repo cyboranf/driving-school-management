@@ -26,6 +26,9 @@ public class LessonController {
     public List<Lesson> getLessonsToday() {
         return lessonService.getLessonsToday();
     }
-
+    @GetMapping("/upcoming/{instructorId}")
+    public List<Lesson> getUpcomingLessonsByInstructor(@PathVariable Integer instructorId) {
+        return lessonService.getUpcomingLessonsByInstructor(instructorId);
+    }
 }
 
