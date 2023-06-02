@@ -33,4 +33,12 @@ public class TestService {
     public void deleteTest(Integer testId) {
         testRepository.deleteById(testId);
     }
+
+    public List<Test> getPassedTestsByStudent(Integer studentId) {
+        return testRepository.findPassedTestsByStudent(studentId);
+    }
+
+    public Double getAverageTestScoreByCourse(Integer courseId) {
+        return testRepository.findAverageTestScoreByCourse(courseId);
+    }
 }
