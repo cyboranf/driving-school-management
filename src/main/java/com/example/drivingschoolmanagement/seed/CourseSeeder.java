@@ -3,11 +3,12 @@ package com.example.drivingschoolmanagement.seed;
 import com.example.drivingschoolmanagement.model.Course;
 import com.example.drivingschoolmanagement.repository.CourseRepository;
 import com.github.javafaker.Faker;
-import jakarta.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.math.BigDecimal;
 
 @Component

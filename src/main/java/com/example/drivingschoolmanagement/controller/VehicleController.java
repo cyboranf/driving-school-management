@@ -2,9 +2,7 @@ package com.example.drivingschoolmanagement.controller;
 
 import com.example.drivingschoolmanagement.model.Vehicle;
 import com.example.drivingschoolmanagement.service.VehicleService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,6 +15,29 @@ public class VehicleController {
         this.vehicleService = vehicleService;
     }
 
+    @GetMapping
+    public List<Vehicle> getAllVehicles() {
+        return vehicleService.getAllVehicles();
+    }
+
+    @GetMapping("/{vehicleId}")
+    public Vehicle getVehicleById(@PathVariable Integer vehicleId) {
+        return vehicleService.getVehicleById(vehicleId);
+    }
+
+    @PostMapping
+    public Vehicle createVehicle(@RequestBody Vehicle vehicle) {
+        return vehicleService.saveVehicle(vehicle);
+    }
+
+
+    @DeleteMapping("/{vehicleId}")
+    public void deleteVehicle(@PathVariable Integer vehicleId) {
+        vehicleService.deleteVehicle(vehicleId);
+    }
+
+    // Endpoints for procedures:
+
     @GetMapping("/maintenance")
     public List<Vehicle> getVehiclesNeedingMaintenance() {
         return vehicleService.getVehiclesNeedingMaintenance();
@@ -27,3 +48,4 @@ public class VehicleController {
         return vehicleService.getAssignedVehicles();
     }
 }
+

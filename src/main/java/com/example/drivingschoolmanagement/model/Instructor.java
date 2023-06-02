@@ -1,9 +1,8 @@
 package com.example.drivingschoolmanagement.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Data;
-
 import java.time.LocalDate;
 import java.util.List;
 

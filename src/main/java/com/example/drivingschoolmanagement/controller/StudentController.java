@@ -3,10 +3,7 @@ package com.example.drivingschoolmanagement.controller;
 import com.example.drivingschoolmanagement.model.Student;
 import com.example.drivingschoolmanagement.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +18,28 @@ public class StudentController {
         this.studentService = studentService;
     }
 
+    @GetMapping
+    public List<Student> getAllStudents() {
+        return studentService.getAllStudents();
+    }
+
+    @GetMapping("/{studentId}")
+    public Student getStudentById(@PathVariable Integer studentId) {
+        return studentService.getStudentById(studentId);
+    }
+
+    @PostMapping
+    public Student createStudent(@RequestBody Student student) {
+        return studentService.saveStudent(student);
+    }
+
+    @DeleteMapping("/{studentId}")
+    public void deleteStudent(@PathVariable Integer studentId) {
+        studentService.deleteStudent(studentId);
+    }
+
+    // Endpoints for procedures:
+
     @GetMapping("/today_lessons")
     public List<Student> getStudentsWithLessonsToday() {
         return studentService.getStudentsWithLessonsToday();
@@ -30,5 +49,5 @@ public class StudentController {
     public List<Student> getStudentsStartedInYear(@PathVariable Integer year) {
         return studentService.getStudentsStartedInYear(year);
     }
-
 }
+

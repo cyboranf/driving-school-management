@@ -7,11 +7,11 @@ import com.example.drivingschoolmanagement.repository.VehicleRepository;
 import com.example.drivingschoolmanagement.repository.VehicleAssignmentRepository;
 import com.example.drivingschoolmanagement.repository.LessonRepository;
 import com.example.drivingschoolmanagement.repository.TestRepository;
-import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 
 
 @Component

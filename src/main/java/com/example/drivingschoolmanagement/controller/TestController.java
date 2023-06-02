@@ -2,10 +2,7 @@ package com.example.drivingschoolmanagement.controller;
 
 import com.example.drivingschoolmanagement.model.Test;
 import com.example.drivingschoolmanagement.service.TestService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,6 +15,28 @@ public class TestController {
         this.testService = testService;
     }
 
+    @GetMapping
+    public List<Test> getAllTests() {
+        return testService.getAllTests();
+    }
+
+    @GetMapping("/{testId}")
+    public Test getTestById(@PathVariable Integer testId) {
+        return testService.getTestById(testId);
+    }
+
+    @PostMapping
+    public Test createTest(@RequestBody Test test) {
+        return testService.saveTest(test);
+    }
+
+    @DeleteMapping("/{testId}")
+    public void deleteTest(@PathVariable Integer testId) {
+        testService.deleteTest(testId);
+    }
+
+    // Endpoints for procedures:
+
     @GetMapping("/passed/{studentId}")
     public List<Test> getPassedTestsByStudent(@PathVariable Integer studentId) {
         return testService.getPassedTestsByStudent(studentId);
@@ -28,3 +47,4 @@ public class TestController {
         return testService.getAverageTestScoreByCourse(courseId);
     }
 }
+

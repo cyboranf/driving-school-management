@@ -2,10 +2,7 @@ package com.example.drivingschoolmanagement.controller;
 
 import com.example.drivingschoolmanagement.model.Instructor;
 import com.example.drivingschoolmanagement.service.InstructorService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,10 +12,32 @@ public class InstructorController {
 
     private final InstructorService instructorService;
 
-
     public InstructorController(InstructorService instructorService) {
         this.instructorService = instructorService;
     }
+
+    @GetMapping
+    public List<Instructor> getAllInstructors() {
+        return instructorService.getAllInstructors();
+    }
+
+    @GetMapping("/{instructorId}")
+    public Instructor getInstructorById(@PathVariable Integer instructorId) {
+        return instructorService.getInstructorById(instructorId);
+    }
+
+    @PostMapping
+    public Instructor createInstructor(@RequestBody Instructor instructor) {
+        return instructorService.saveInstructor(instructor);
+    }
+
+    @DeleteMapping("/{instructorId}")
+    public void deleteInstructor(@PathVariable Integer instructorId) {
+        instructorService.deleteInstructor(instructorId);
+    }
+
+    // Endpoints for procedures:
+
 
     @GetMapping("/max_lessons_next_week")
     public List<Instructor> getInstructorsWithMaxLessonsNextWeek() {
@@ -29,6 +48,6 @@ public class InstructorController {
     public List<Instructor> getInstructorsWithBirthdayInMonth(@PathVariable Integer month) {
         return instructorService.getInstructorsWithBirthdayInMonth(month);
     }
-
 }
+
 
