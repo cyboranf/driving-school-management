@@ -4,11 +4,10 @@ import com.github.javafaker.Faker;
 import com.example.drivingschoolmanagement.model.Instructor;
 import com.example.drivingschoolmanagement.service.InstructorService;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.PostConstruct;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
