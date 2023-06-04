@@ -16,6 +16,9 @@ import java.time.LocalDateTime;
         @NamedStoredProcedureQuery(
                 name = "lessons_today",
                 procedureName = "lessons_today",
+                parameters = {
+                        @StoredProcedureParameter(mode = ParameterMode.REF_CURSOR, name = "lessons_cursor", type = void.class)
+                },
                 resultClasses = {Lesson.class}
         ),
         @NamedStoredProcedureQuery(

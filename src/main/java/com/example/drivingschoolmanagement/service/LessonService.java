@@ -35,8 +35,9 @@ public class LessonService {
         lessonRepository.deleteById(lessonId);
     }
     public List<Lesson> getLessonsToday() {
-        return lessonRepository.findLessonsToday();
+        return lessonRepository.findLessonsToday(null);
     }
+
     public List<Lesson> getUpcomingLessonsByInstructor(Integer instructorId) {
         return lessonRepository.findUpcomingLessonsByInstructor(instructorId);
     }

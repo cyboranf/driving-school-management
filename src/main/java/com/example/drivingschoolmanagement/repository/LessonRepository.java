@@ -10,7 +10,8 @@ import java.util.List;
 
 public interface LessonRepository extends JpaRepository<Lesson, Integer> {
     @Procedure(name = "lessons_today")
-    List<Lesson> findLessonsToday();
+    List<Lesson> findLessonsToday(@Param("lessons_cursor") Class<Void> output);
+
 
     @Procedure(name = "upcoming_lessons")
     List<Lesson> findUpcomingLessonsByInstructor(@Param("p_instructor_id") Integer instructorId);
