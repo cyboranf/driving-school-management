@@ -16,7 +16,7 @@ The database schema can be found in the file `bd.txt`, and the database procedur
 
 ## Front-end
 
-[driving-school-management](https://github.com/cyboranf/meetex-socialmedia-webapp): The frontend web application built using React and JavaScript.
+[driving-school-management](https://github.com/bdnrJ/dbproj_front): The frontend web application built using React and JavaScript.
 
 ## Swagger Documentation
 
