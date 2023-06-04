@@ -14,6 +14,10 @@ The database schema can be found in the file `bd.txt`, and the database procedur
 
 ![ERD](/images/erdDrivingSchool.jpg)
 
+## Front-end
+
+[driving-school-management](https://github.com/cyboranf/meetex-socialmedia-webapp): The frontend web application built using React and JavaScript.
+
 ## Swagger Documentation
 
 ![Swagger Documentation](/images/swaggerDocumentation.png) 
